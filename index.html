@@ -1,1 +1,38 @@
-master
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript3-1</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1>ToDoリスト</h1>
+  </header>
+
+  <form id="RadioForm">
+    <label><input type="radio" id="radio-all" value="all">すべて</label>
+    <label><input type="radio" id="radio-doing" value="doing">作業中</label>
+    <label><input type="radio" id="radio-done" value="done">完了</label>
+  </form>
+
+  
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>コメント</th>
+      <th>状態</th>
+    </thead>
+    <tbody id="addTask-target"></tbody>
+  </table>
+
+  <h2>新規タスクの追加</h2>
+
+  <input id="input-todo" type="text">
+  <button id="add-button">追加</button>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
