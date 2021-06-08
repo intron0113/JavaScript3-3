@@ -9,7 +9,7 @@
     const todo = { comment: inputBox.value, status: '作業中' };
     inputBox.focus();
     if (inputBox.value === '') {
-      alert('タスクを入力してください！');
+      console.log('タスクを入力してください！');
       return;
     }
     todos.push(todo);
