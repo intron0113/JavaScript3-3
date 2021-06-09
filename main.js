@@ -49,7 +49,6 @@ const createStatusButton = (todo) => {
       todo.status = '作業中';
     }
     showTodos(todos);
-    console.log(todos);
   });
   return statusButton;
 };
