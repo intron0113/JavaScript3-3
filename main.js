@@ -19,7 +19,7 @@
 
   const showTodos = () => {
     addTaskTarget.textContent = '';
-    todos.forEach((todo, number) => {
+    todos.forEach((todo,number) => {
       const tableRecord = document.createElement('tr');
       addTaskTarget.appendChild(tableRecord);
       const tableId = document.createElement('td');
@@ -34,26 +34,28 @@
       tableRecord.appendChild(tableStatus);
       tableRecord.appendChild(tableAction);
 
-      tableStatus.appendChild(createStatusButton());
+      tableStatus.appendChild(createStatusButton(todo));
       tableAction.appendChild(createDeleteButton(tableRecord));
     });
   };
 
-  const createStatusButton = () => {
-    const statusButton = document.createElement('button');
-    statusButton.textContent = '作業中';
-    statusButton.addEventListener('click', () => {
-      if (statusButton.textContent === '作業中') {
-        statusButton.textContent = '完了';
-      } else {
-        statusButton.textContent = '作業中';
-      }
-    });
-    return statusButton;
-  };
+const createStatusButton = (todo) => {
+  const statusButton = document.createElement('button');
+  statusButton.innerText = todo.status;
+  statusButton.addEventListener('click', () => {
+    if (todo.status === '作業中') {
+      todo.status = '完了';
+    } else {
+      todo.status = '作業中';
+    }
+    showTodos(todos);
+    console.log(todos);
+  });
+  return statusButton;
+};
 
-  const createDeleteButton = (number) => {
-    const index = number.rowIndex - 1;
+  const createDeleteButton = (tableRecord) => {
+    const index = tableRecord.rowIndex - 1;
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '削除';
     deleteButton.addEventListener('click', () => {
